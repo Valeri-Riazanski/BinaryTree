@@ -22,16 +22,12 @@ public class Tree {
                 if (key < current.key) {
                     current = current.leftRamus;
                     if (current == null) {
-                        System.out.print("left append ");
-                        parent.print();
                         parent.leftRamus = newNode;
                         return;
                     }
                 } else {
                     current = current.rightRamus;
                     if (current == null) {
-                        System.out.print("right append ");
-                        parent.print();
                         parent.rightRamus = newNode;
                         return;
                     }
@@ -60,15 +56,26 @@ public class Tree {
     public void traversal(Node root) {
         String l = "left ";
         String r = "right ";
+        int level = 0;
         String trend = l;
-        System.out.print(trend);
+        System.out.print(level + " nesting ");
 
         if (root != null) {
+            level++;
+            System.out.print(level + " nesting ");
             traversal(root.leftRamus);
             trend = r;
             System.out.print(trend);
             root.print();
             traversal(root.rightRamus);
+        }
+    }
+
+    public void traversalDecrease(Node root) {
+        if (root != null) {
+            traversalDecrease(root.rightRamus);
+            root.print();
+            traversalDecrease(root.leftRamus);
         }
     }
     public Node getRoot() {
