@@ -9,8 +9,13 @@ public class Tree {
     //    constructors
     public Tree() {
     }
+
+//    static factory method
+    public static Tree newEmptyTree() {
+        return new Tree();
+    }
     //    methods
-    public void append(int key, Book content) {
+    public void append(int key, String content) {
         Node newNode = new Node(key, content);
         if (root == null) {
             root = newNode;
@@ -54,18 +59,13 @@ public class Tree {
     }
 
     public void traversal(Node root) {
-        String l = "left ";
-        String r = "right ";
         int level = 0;
-        String trend = l;
-        System.out.print(level + " nesting ");
+        System.out.print("\033[0;34m" + level + " nesting " + "\033[0m");
 
         if (root != null) {
             level++;
             System.out.print(level + " nesting ");
             traversal(root.leftRamus);
-            trend = r;
-            System.out.print(trend);
             root.print();
             traversal(root.rightRamus);
         }

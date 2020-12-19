@@ -33,6 +33,16 @@ public class Book {
         }
         return str;
     }
+    public static String makeWord(int n) {
+        final int valueAlphabet = 26;
+        final int shift = 97;
+        String str = "";
+        for (int k = 0; k < n; k++) {
+            str = str + (char) ((int) (shift + valueAlphabet * random()));
+        }
+        return str;
+
+    }
     public String createUpperWord(int n) {
         final int valueAlphabet = 26;
         final int shift = 65;
